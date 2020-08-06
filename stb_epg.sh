@@ -157,8 +157,9 @@ EPG_genre_write_number=yes
 
 
 
-	
+# --------------------------------------------------------------------------------------------------
 # E2 service tag's
+# --------------------------------------------------------------------------------------------------
 TAG_e2servicelist_start="<e2servicelist>"
 TAG_e2servicelist_end="</e2servicelist>"
 TAG_e2service_start="<e2service>"
@@ -168,7 +169,9 @@ TAG_e2servicereference_end="</e2servicereference>"
 TAG_e2servicename_start="<e2servicename>"
 TAG_e2servicename_end="</e2servicename>"
 
+# --------------------------------------------------------------------------------------------------
 # E2 EPG tag's
+# --------------------------------------------------------------------------------------------------
 TAG_e2eventlist_start="<e2eventlist>"
 TAG_e2eventlist_end="</e2eventlist>"
 TAG_e2event_start="<e2event>"
@@ -280,6 +283,8 @@ Read_Config ()
   # 
   # Read the config file
   #
+  #######################################################################################################################
+
   Pattern=\=
   while read ConfigLineIn
   do
@@ -493,6 +498,8 @@ Create_Directories ()
   # 
   # Create directories if not exsists
   #
+  #######################################################################################################################
+
   if [[ "${FEEDBACK}" == "PRINT" ]] || [[ "${FEEDBACK}" == "PRINT_ALL" ]]; then
     echo ""
     echo ""
@@ -557,6 +564,8 @@ Display_Config_data ()
   # 
   # Display config data
   #
+  #######################################################################################################################
+
   if [[ "${FEEDBACK}" == "PRINT" ]] || [[ "${FEEDBACK}" == "PRINT_ALL" ]]; then
     echo ""
     echo ""
@@ -719,6 +728,8 @@ Download_Bouquets_List ()
   # 
   # Do the download of bouquets list
   #
+  #######################################################################################################################
+
   if [[ "${FEEDBACK}" == "PRINT_ALL" ]]; then
     ${BIN_dir_wget}wget http://${STB_ip[${STB_Count}]}/web/getservices -O ${DIR_bouquets}stb${STB_number[${STB_Count}]}_bouquets_listing.xml
   else
@@ -802,6 +813,8 @@ Download_Channel_Lists ()
     # 
     # Get channel list
     #
+    #######################################################################################################################
+
     Bouquet_ID=${DO_Bouquet_ID[${TMP_Bouquets_Count}]}
     if [[ "${FEEDBACK}" == "PRINT" ]] || [[ "${FEEDBACK}" == "PRINT_ALL" ]]; then
       echo "--------------------------------------------------------------------------"
@@ -840,6 +853,8 @@ Write_m3u_Playlist ()
   # 
   # Creating play list
   #
+  #######################################################################################################################
+
   if [[ "${FEEDBACK}" == "PRINT" ]] || [[ "${FEEDBACK}" == "PRINT_ALL" ]]; then
     echo ""
     echo "=========================================================================="
@@ -999,6 +1014,8 @@ Download_EPG ()
   #
   # Download EPG from STB
   #
+  #######################################################################################################################
+
   if [[ "${FEEDBACK}" == "PRINT" ]] || [[ "${FEEDBACK}" == "PRINT_ALL" ]]; then
     echo ""
     echo "=========================================================================="
@@ -1134,6 +1151,8 @@ Write_EPG_Channel_headers ()
   #
   # Writing channel header to XMLTV file
   #
+  #######################################################################################################################
+
   if [[ "${FEEDBACK}" == "PRINT" ]] || [[ "${FEEDBACK}" == "PRINT_ALL" ]]; then
     echo ""
     echo "--------------------------------------------------------------------------"
@@ -1274,6 +1293,8 @@ Write_EPG_Program_data ()
   #
   # Creating EPG
   #
+  #######################################################################################################################
+
   if [[ "${FEEDBACK}" == "PRINT" ]] || [[ "${FEEDBACK}" == "PRINT_ALL" ]]; then
     echo ""
     echo "--------------------------------------------------------------------------"
@@ -1561,6 +1582,8 @@ Write_EPG_Program_data ()
 # 
 # Pre work
 #
+#######################################################################################################################
+
 Read_Config
 Create_Directories 
 Display_Config_data
@@ -1569,6 +1592,8 @@ Display_Config_data
 # 
 # The real work start here - One run for each STB
 #
+#######################################################################################################################
+
 STB_Count=1
 while [[ ${STB_Count} -le ${STB_maks} ]]; do
   if [[ "${FEEDBACK}" == "PRINT" ]] || [[ "${FEEDBACK}" == "PRINT_ALL" ]]; then
@@ -1595,6 +1620,8 @@ while [[ ${STB_Count} -le ${STB_maks} ]]; do
   # 
   # Download and writing bouquets and channellist to M3U file.
   #
+  #######################################################################################################################
+
   if [[ "${GET_ALL}" == "TRUE" ]]; then
     Bouquets_Count=0
     Download_Bouquets_List
@@ -1603,11 +1630,16 @@ while [[ ${STB_Count} -le ${STB_maks} ]]; do
     Download_Channel_Lists
     Write_m3u_Playlist
   fi
+  
+  
+  
   #######################################################################################################################
   # 
   # Download and writing EPG to XMLTV file. If STB info for EPG is set to "no" then it skip EPG for this STB. 
   # If script is runned with parameter EPG_ALL it overides settings from config file (downloads EPG from all STB's).
   #
+  #######################################################################################################################
+
   if [[ "${STB_epg[${STB_Count}]}" == "yes" ]]; then
     Download_EPG
     Write_EPG_Channel_headers
