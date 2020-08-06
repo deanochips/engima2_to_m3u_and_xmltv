@@ -3,10 +3,13 @@
 Enigma2 to M3u and XMLTV allows you to generate m3u and xmltv files for use in iptv players such as Tivimate and plex,
 it should work with all software that accepts these inputs
 
+allowing you to get your terrestrial tv to your other devices.....
+for example i am using it to get all the terrestrial channels to my androidtv nvidia shield
+
 ---
 
 ## Setup
-1) Download script 
+1) Download/clone script 
 2) edit stb_epg.cfg with your settings
 3) Make the script is ready to run by: chmod +x stb_epg.sh
 4) Run the script with help parameter first time: ./stb_epg.sh -HELP if you need help for parametes.
