@@ -41,8 +41,7 @@ Example crontab:
 
 `0 3 * * * /path/to/stb_epg.sh >> /path/to/log.log 2>&1`
 
+---
 
-
-
-
+## Acknowledgments
 Special Thanks to Ole Andreas Gloersen
