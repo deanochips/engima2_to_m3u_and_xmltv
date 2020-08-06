@@ -2,10 +2,11 @@
 
 
 ## install
-1) Extract and edit stb_epg.conf
-2) Make the script is ready to run by: chmod +x stb_epg.sh
-3) Run the script with help parameter first time: ./stb_epg.sh HELP if you need help for parametes.
-4) First time the script is used you need to run ./stb_epg.sh GET_ALL 
+1) Download script 
+2) edit stb_epg.cfg with your settings
+3) Make the script is ready to run by: chmod +x stb_epg.sh
+4) Run the script with help parameter first time: ./stb_epg.sh HELP if you need help for parametes.
+5) First time the script is used you need to run ./stb_epg.sh GET_ALL 
 to get data from your STB
 
 This forces the creation of channel list from bouquets.
