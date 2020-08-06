@@ -1,5 +1,7 @@
 # Engima2_to_m3u_and_xmltv
 
+Enigma2 to M3u and XMLTV allows you to generate m3u and xmltv files for use in iptv players such as Tivimate and plex,
+it should work with all software that accepts these inputs
 
 ---
 
