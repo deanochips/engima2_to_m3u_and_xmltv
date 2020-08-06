@@ -49,4 +49,4 @@ Example crontab:
 ---
 
 ## Acknowledgments
-Special Thanks to Ole Andreas Gloersen
+Special Thanks to Ole Andreas Gloersen, whos original script was the genisis of this.
