@@ -1460,7 +1460,8 @@ Write_EPG_Program_data ()
           echo -e "  <programme start=\"${EPG_Start_time} ${UTC_offset}\" stop=\"${EPG_End_time} ${UTC_offset}\" channel=\"${e2eventservicename}\">" >> "${DIR_epg}stb${STB_number[${STB_Count}]}_xmltv.xml"
           echo -e "    <title lang=\"no\">${e2eventtitle}</title>" >> "${DIR_epg}stb${STB_number[${STB_Count}]}_xmltv.xml"
           if [[ ${#e2eventdescription} -gt 0 ]]; then
-            echo -e "    <sub-title lang=\"no\">${e2eventdescription}</sub-title>" >> "${DIR_epg}stb${STB_number[${STB_Count}]}_xmltv.xml"
+#            echo -e "    <sub-title lang=\"no\">${e2eventdescription}</sub-title>" >> "${DIR_epg}stb${STB_number[${STB_Count}]}_xmltv.xml"
+            echo -e "    <desc lang=\"no\">${e2eventdescription}</desc>" >> "${DIR_epg}stb${STB_number[${STB_Count}]}_xmltv.xml"
           fi
           if [[ ${#e2eventdescriptionextended} -gt 0 ]]; then
             echo -e "    <desc lang=\"no\">${e2eventdescriptionextended}</desc>" >> "${DIR_epg}stb${STB_number[${STB_Count}]}_xmltv.xml"
