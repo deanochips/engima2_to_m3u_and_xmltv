@@ -19,6 +19,7 @@ to get data from your STB
 This forces the creation of channel list from bouquets.
 
 every time you change your bouquets you need to run GET_ALL, otherwise it will only update the epg
+6) If you want to run this manually first time run ./stb_epg.sh -PRINT_ALL 
 
 ---
 
